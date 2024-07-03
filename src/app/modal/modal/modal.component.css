@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full screen height */
+  margin: 0; /* No margin */
+  overflow: hidden; /* Prevents overflow */
+  padding: 0; /* No padding */
+}

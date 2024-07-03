@@ -1,0 +1,10 @@
+.task_card{
+  border: 1px solid black;
+  /* border-radius: ; */
+}
+.edit_icon:hover{
+  color: blue;
+}
+.delete_icon:hover{
+  color: red;
+}

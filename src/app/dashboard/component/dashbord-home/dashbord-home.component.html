@@ -1,0 +1,33 @@
+
+<div class="row ">
+  <div class="col-2">
+    <app-aside></app-aside>
+  </div>
+  <div class="col-9">
+    <app-header></app-header>
+    <hr>
+    <div class="container">
+
+      <div class="task_header d-flex justify-content-between ">
+        <h4 class="col-lg-2 ">Tasks</h4>
+        <div class="task_icons col-lg-6">
+          <ul class="list-unstyled d-flex mx-5  ">
+            <!-- <li><i class="fa-solid fa-reply px-3 "></i></li>
+            <li><i class="fa-solid fa-share px-3"></i></li>
+            <li><i class="fa-solid fa-user-group px-3"></i></li>
+            <li><i class="fa-solid fa-bars px-3"></i></li> -->
+            <li><button class="btn btn-primary px-3 add" (click)="addNewTask(newTask)">New Task <i class="fa-solid fa-plus"></i></button></li>
+            <input class="form-control mx-1 w-25" [(ngModel)]="newTask.title" placeholder="Title">
+            <input class="form-control mx-1 w-25" [(ngModel)]="newTask.description" placeholder="Description">
+          </ul>
+        </div>
+
+      </div>
+    <app-taskhome [todos] = "todos" (emitTodoId)="deleteTodoById($event)" (updateTodoId)="updateTodoById($event)">
+      <!-- <app-taskcard></app-taskcard> -->
+    </app-taskhome>
+    </div>
+  </div>
+</div>
+
+

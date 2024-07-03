@@ -1,0 +1,36 @@
+<p>modal works!</p>
+ <div mat-dialog-content class="modal d-flex flex-column justify-content-center align-items-center">
+
+
+<h1 mat-dialog-title>update task </h1>
+<div mat-dialog-content>
+  <p>enter task title and description </p>
+</div>
+<div class="update_continer">
+  <button class="btn btn-primary px-3 add" >update Task <i class="fa-solid fa-plus"></i></button>
+            <input class="form-control mx-1 " matInput [(ngModel)]="task.title" name="title">
+            <input class="form-control mx-1 "  matInput [(ngModel)]="task.description" name="description">
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</div>
+</div>
+<!--
+<h1 mat-dialog-title>Edit Task</h1>
+<div mat-dialog-content >
+  <form #taskForm="ngForm"> -->
+    <!-- <mat-form-field> -->
+      <!-- <mat-label>Title</mat-label> -->
+      <!-- <input matInput [(ngModel)]="task.title" name="title"> -->
+    <!-- </mat-form-field> -->
+
+    <!-- <mat-form-field> -->
+      <!-- <mat-label>Description</mat-label> -->
+      <!-- <textarea matInput [(ngModel)]="task.description" name="description"></textarea> -->
+    <!-- </mat-form-field> -->
+  <!-- </form>
+</div> -->
+<!-- <div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="task" cdkFocusInitial>Save</button>
+</div> -->

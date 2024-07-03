@@ -1,0 +1,21 @@
+<div class="card_item" *ngFor="let task of tasks">
+
+<div class="task_card d-flex flex-column mx-3 rounded-3 p-3 my-2">
+    <div class="task_title d-flex justify-content-between ">
+        <h5>{{task.title}}</h5>
+        <div class="task_icons d-flex " >
+          <div class="edit_icon mx-4  " (click)="updateTask(task.id)">
+              <i class="fa-solid fa-pen fs-5"></i>
+          </div>
+            <div class="delete_icon " (click)="deleteTask(task.id)">
+                <i class="fa-solid fa-trash fs-5"></i>
+            </div>
+        </div>
+      </div>
+      <div class="task_details my-2">
+          <p>{{task.description}}</p>
+
+      </div>
+
+</div>
+</div>

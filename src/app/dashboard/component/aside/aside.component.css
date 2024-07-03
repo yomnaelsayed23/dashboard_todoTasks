@@ -1,0 +1,25 @@
+
+.logo{
+  transform: rotate(45deg);
+}
+.aside_item{
+  /* border: 1px solid #14367b; */
+  /* width: ; */
+  color: #14367b;
+  font-weight: bold;
+  background-color: #eef2fc;
+}
+.aside_container{
+  border-right: 1px solid black;
+  
+}
+.logout{
+  background-color:#fdf0ec;
+  color: #81290e;
+
+
+}
+.active{
+  background-color: #2563dc !important;
+  color:#fff;
+}
