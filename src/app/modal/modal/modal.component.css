@@ -7,3 +7,7 @@
   overflow: hidden; /* Prevents overflow */
   padding: 0; /* No padding */
 }
+.modal-content{
+  background-color: #eee !important;
+}
+

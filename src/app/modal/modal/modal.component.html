@@ -1,20 +1,40 @@
 <p>modal works!</p>
  <div mat-dialog-content class="modal d-flex flex-column justify-content-center align-items-center">
 
+<div class="modal_content p-5 rounded-3 text-center " style="background-color: #eee;">
 
-<h1 mat-dialog-title>update task </h1>
-<div mat-dialog-content>
-  <p>enter task title and description </p>
+  <h1 mat-dialog-title>update task </h1>
+  <div mat-dialog-container>
+    <p>enter task title and description </p>
+  <!-- </div> -->
+  <div class="update_continer">
+              <input class="form-control mx-1 my-4" matInput [(ngModel)]="task.title" name="title">
+              <input class="form-control mx-1 my-4"  matInput [(ngModel)]="task.description" name="description">
+  </div>
+  <div mat-dialog-actions>
+    <button class="btn btn-danger px-3 mx-3" mat-button (click)="onClose()">Close</button>
+    <button class="btn btn-primary px-3 add" (click)="onSaveClick()">update Task </button>
+  
+  </div>
 </div>
-<div class="update_continer">
-  <button class="btn btn-primary px-3 add" >update Task <i class="fa-solid fa-plus"></i></button>
-            <input class="form-control mx-1 " matInput [(ngModel)]="task.title" name="title">
-            <input class="form-control mx-1 "  matInput [(ngModel)]="task.description" name="description">
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onClose()">Close</button>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
 <h1 mat-dialog-title>Edit Task</h1>
 <div mat-dialog-content >

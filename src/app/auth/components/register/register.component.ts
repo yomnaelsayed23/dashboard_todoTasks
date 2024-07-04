@@ -7,10 +7,7 @@ import { FormBuilder, FormControl, FormControlName, FormGroup, ReactiveFormsModu
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    // FormGroup,
-    // FormBuilder,
-    // FormControl,
-    // FormControlName,
+ 
     NgIf,
   ],
   templateUrl: './register.component.html',
@@ -31,7 +28,7 @@ export class RegisterComponent {
 submitRegisterForm(registerForm:FormGroup){
 console.log(registerForm.value);
 localStorage.setItem('userValue',JSON.stringify(this.registerForm.value))
-console.log("data saved in localstorage");
+
 
 
 }

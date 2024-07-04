@@ -3,15 +3,15 @@
   transform: rotate(45deg);
 }
 .aside_item{
-  /* border: 1px solid #14367b; */
-  /* width: ; */
+
   color: #14367b;
   font-weight: bold;
   background-color: #eef2fc;
 }
 .aside_container{
   border-right: 1px solid black;
-  
+
+
 }
 .logout{
   background-color:#fdf0ec;
@@ -19,7 +19,35 @@
 
 
 }
+.logout_box{
+
+  position: absolute;
+  bottom: -59px;
+  left: 15px;
+  width: 253px;
+
+}
 .active{
   background-color: #2563dc !important;
   color:#fff;
 }
+/* .logout_box{
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1090px) {
+  .aside_container {
+    display: none;
+  }
+}
+
+.icon-container {
+  display: none;
+}
+
+@media screen and (max-width: 1090px) {
+  .icon-container {
+    display: block;
+  }
+} */

@@ -29,4 +29,9 @@ export class TasksService {
   deleteTask(id:number):Observable<any>{
     return this._httpClient.delete(`${this.baseUrl}/${id}`)
   }
+
+
+  updateTask(task: Task): Observable<Task> {
+    return this._httpClient.put<Task>(`${this.baseUrl}/${task.id}`, task);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { AsideComponent } from '../aside/aside.component';
 import { TaskhomeComponent } from '../taskhome/taskhome.component';
@@ -27,6 +27,7 @@ import { SearchServiceService } from '../../services/search-service.service';
     MatDialogModule,
     ModalComponent,
     // MatDialog
+
   ],
   templateUrl: './dashbord-home.component.html',
   styleUrl: './dashbord-home.component.css'
@@ -37,6 +38,8 @@ export class DashbordHomeComponent implements OnInit {
   result: any;
   todos!: Array<Task>
   searchTerm: string = '';
+  tasks: Task[] = [];
+  @Input() filter!: string
 constructor(private _tasksService:TasksService,public dialog: MatDialog,private searchService: SearchServiceService){}
 
 
@@ -50,7 +53,6 @@ constructor(private _tasksService:TasksService,public dialog: MatDialog,private 
       error: err => console.log(err)
     })
 
-    // this.updateDataForSearch()
   }
 
 addNewTask(task:any):void{
@@ -59,7 +61,9 @@ addNewTask(task:any):void{
     this._tasksService.getTasks().subscribe({
       next: res => this.todos = res,
       error: err => console.log(err)
+
     })
+    console.log("from dash home");
   })
   }
 
@@ -70,12 +74,7 @@ addNewTask(task:any):void{
     }
 
 
-  sendObjecttoservice(newTask:object){
-    console.log(this.newTask);
-    this._tasksService.setnewtask(this.newTask)
-
-
-  }
+  
 
   updateTodoById(id: number) {
     const  task = this.todos.filter(todo => todo.id === id);
@@ -83,24 +82,33 @@ addNewTask(task:any):void{
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '250px',
       data:{task : task},
-      // data:{task : task},
-      position: { top: '0', left: '0', right: '0', bottom: '0' },
+
+       panelClass: 'custom-dialog-container'
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // console.log('The dialog was closed');
-      this.result = result; // Get the data returned from the modal
-      console.log('Returned data:', this.result);
+
+      if (result) {
+        this.updateTask(result);
+
+
+      }
     });
   }
 
-  // updateDataForSearch(){
-  //   this.searchService.getSearchTerm().subscribe(term => this.searchTerm = term);
-  // }
+  updateFilter(searchTerm: string): void {
+    this.filter = searchTerm;
+  }
 
-  // onSearch(term: string) {
-  //   this.searchService.setSearchTerm(term); // Update service with search term
-  // }
+  updateTask(updatedTask: Task): void {
+    this._tasksService.updateTask(updatedTask).subscribe(task => {
+      const index = this.tasks.findIndex(t => t.id === task.id);
+      if (index !== -1) {
+        this.tasks[index] = task;
+      }
+    });
+  }
 
     }
 

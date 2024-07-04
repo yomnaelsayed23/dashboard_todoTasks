@@ -1,5 +1,15 @@
 .task_item{
-  background-color: antiquewhite;
+  
   height: 72vh;
   border-radius: 1rem;
+  z-index: -5899;
+}
+.todo{
+  background-color: #eef2fc;
+}
+.in_progress{
+  background-color:#fff6eb
+}
+.completed{
+  background-color:#fdf0ec;
 }

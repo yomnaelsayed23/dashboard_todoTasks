@@ -3,3 +3,7 @@ img.profile{
   width: 55px;
   /* height:20px; */
 }
+.header{
+
+  z-index: -888;
+}

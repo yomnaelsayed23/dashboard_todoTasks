@@ -3,6 +3,8 @@ import { TaskcardComponent } from '../taskcard/taskcard.component';
 import { TasksService } from '../../services/tasks.service';
 import { NgFor } from '@angular/common';
 import { Task } from '../../interfaces/task';
+import { Subscription } from 'rxjs';
+import { SearchServiceService } from '../../services/search-service.service';
 
 
 @Component({
@@ -20,7 +22,10 @@ export class TaskhomeComponent {
   @Input() todos!: Array<Task>
   @Output() emitTodoId: EventEmitter<number> = new EventEmitter();
   @Output() updateTodoId: EventEmitter<number> = new EventEmitter();
-
+  tasks: any[] = [];
+  filteredTasks: any[] = [];
+  searchTerm: string = '';
+  private subscription!: Subscription;
 
     getDeletedTodo(id: number) {
         this.emitTodoId.emit(id);
@@ -28,32 +33,38 @@ export class TaskhomeComponent {
 
 
     getUpdateTodo(id: number) {
-     
+
       this.updateTodoId.emit(id);
       }
-constructor(private _tasksService:TasksService){}
-// getTasks(): void {
-//   this._tasksService.getTasks().subscribe(data => {
-//     this.tasks = data;
-//   })
-// }
-// reciveTaskfrominput(){
-//   this._tasksService.getnewtask().subscribe(data =>{
-//     this.reciveTask = data
-//     console.log(data);
+constructor(private tasksService:TasksService,private searchservice:SearchServiceService){}
 
-//   })
-}
-// addNewTask(task:any):void{
-//   this._tasksService.addNewTask(task).subscribe(()=>{
-//     // this.getTasks()
-//     this.newTask = {title:'',description:''}
-//   })
+// ngOnInit(): void {
+//   this.tasksService.getTasks().subscribe(res => {
+//     this.tasks = res;
+//     this.filterTasks();
+//   });
+
+//   this.subscription = this.searchservice.searchTerm.subscribe(term => {
+//     this.searchTerm = term;
+//     this.filterTasks();
+//   });
+// }
+
+
+// filterTasks(): void {
+//   if (!this.searchservice.searchTerm) {
+//     this.filteredTasks = this.tasks;
+//   } else {
+//     this.filteredTasks = this.tasks.filter(task =>
+
+//       task.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+//     );
+
 //   }
-
-  // deleteTask(id:number):void{
-  //   this._tasksService.deleteTask(id).subscribe(()=>{
-  //     this._tasksService.getTasks()
-  //   })
-  // }
 // }
+
+// ngOnDestroy(): void {
+//   this.subscription.unsubscribe();
+// }
+
+}

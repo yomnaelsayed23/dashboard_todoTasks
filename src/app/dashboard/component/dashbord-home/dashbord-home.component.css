@@ -1,2 +1,16 @@
 
 
+.custom-dialog-container .mat-dialog-container {
+  background-color: #eee; /* Background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   height: 100vh;
+  
+  min-height: auto !important;
+
+
+}
+.home{
+  position: relative;
+}

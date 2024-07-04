@@ -25,7 +25,7 @@ export class TaskcardComponent implements OnChanges {
   @Input() task:any;
   @Output() delete: EventEmitter<number> = new EventEmitter<number>()
   @Output() update: EventEmitter<number> = new EventEmitter<number>()
-  
+
   // SearchedTask = [...this.todos]
 
 constructor(private _tasksService:TasksService,public dialog: MatDialog, private searchService:SearchServiceService){}
@@ -41,7 +41,7 @@ if(this.todos && this.todos.length > 0){
   console.log("else: ", this.todos);
 // this.search()
   this.getTasks()
-  
+
 }
 }
 
@@ -65,23 +65,6 @@ updateTask(id:number):void{
 }
 
 
-// SearchedTask = [...this.todos]
-// search(){
 
-//   this.searchService.search$.subscribe(query => {
-//     this.SearchedTask = this.tasks.filter(task => task.title.toLowerCase().includes(query.toLowerCase()));
-// }
-// openModal(): void {
-//   const dialogRef = this.dialog.open(ModalComponent, {
-//     width: '250px',
-//     // data: { /* You can pass data to the modal here */ }
-//     position: { top: '0%', left: '50%' },
-//   });
-
-//   dialogRef.afterClosed().subscribe(result => {
-//     console.log('The dialog was closed');
-//     // Handle the result if needed
-//   });
-// }
 
 }

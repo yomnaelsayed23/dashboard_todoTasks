@@ -20,16 +20,13 @@ import { Router } from '@angular/router';
   DashbordHomeComponent,
 
 
-  // FormGroup,
-
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
- loginData:any;
 
-constructor(private _router:Router){}
+constructor(private router:Router){}
 
 loginForm :FormGroup = new FormGroup({
 email: new FormControl (null,[Validators.required,Validators.email]),
@@ -37,27 +34,15 @@ password : new FormControl(null ,[Validators.required,Validators.pattern(/^[A-Z]
 });
 
 
-ngOnInit() {
-  if (typeof localStorage !== 'undefined') {
-    const storedDataString = localStorage.getItem('userValue');
-    if (storedDataString) {
-      this.loginData = JSON.parse(storedDataString);
-    }
-  }
-}
-
-//
-
 submitLogin(loginForm:FormGroup){
-if (loginForm.valid) {
-  const {email,password} = this.loginForm.value
-  if (this.loginData && email===this.loginData.email && password=== this.loginData.password) {
-    this._router.navigate(['/dashboard'])
+  console.log(loginForm);
 
-  }else{
-    this._router.navigate(['/login'])
+   if (this.loginForm.valid) {
+  localStorage.setItem('email', JSON.stringify(this.loginForm.get('email')?.value));
+  localStorage.setItem('password',  JSON.stringify(this.loginForm.get('password')?.value));
 
-  }
+  this.router.navigate(['/dashboard']);
+  console.log(loginForm.value);
 
 }
 }

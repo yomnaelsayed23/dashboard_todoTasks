@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 // import { Task } from 'zone.js/lib/zone-impl';
 import { Task } from '../../dashboard/interfaces/task';
 import { log } from 'console';
+import { TasksService } from '../../dashboard/services/tasks.service';
 
 
 @Component({
@@ -17,10 +18,11 @@ import { log } from 'console';
 })
 export class ModalComponent {
 
-
+  updatedTaskName!: string;
   task!: Task;
   constructor(public dialogRef: MatDialogRef<ModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private tasksService:TasksService
   ) {
     this.task = data.task[0];
     console.log(data );
@@ -30,5 +32,13 @@ export class ModalComponent {
 
   onClose(): void {
     this.dialogRef.close(this.data);
+  }
+
+  onSaveClick(): void {
+    this.dialogRef.close({ ...this.data, name: this.updatedTaskName });
+  }
+
+  updateTask(task:Task){
+    this.tasksService.updateTask(task)
   }
 }

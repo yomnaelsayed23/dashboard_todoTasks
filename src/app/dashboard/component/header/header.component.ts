@@ -15,8 +15,11 @@ export class HeaderComponent {
   onSearch(target: EventTarget | null) {
     const inputElement = target as HTMLInputElement;
     const query = inputElement.value;
-    this.searchService.setSearchQuery(query)
-    console.log(query);
+    this.searchService.setSearchTerm(query)
+    console.log(inputElement.value);
+
 
   }
+
+
 }

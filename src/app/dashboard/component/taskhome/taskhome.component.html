@@ -1,37 +1,37 @@
-<p>taskhome works!</p>
+
 <div class="task_items ">
     <div class="row">
-    <div class="col-lg-4 col-md-6">
-      <div class="task_item">
+    <div class="  col-lg-4 col-md-6">
+      <div class="task_item todo">
 
         <div class="todo_task d-flex p-4 align-items-center ">
          <i class="fa-regular fa-square fs-4 px-2 logo"></i>
 
-          <h4>To do</h4>
+          <h4 class="fw-bold">To do</h4>
         </div>
-<!-- <div class="card_item" *ngFor="let task of tasks"> -->
-  <!-- <h3>{{ task.title }}</h3> -->
+        <!-- <div *ngFor="let task of filteredTasks"> -->
   <app-taskcard [todos] = "todos" (delete)="getDeletedTodo($event)" (update)="getUpdateTodo($event)"></app-taskcard>
-   <!-- </div> -->
+<!-- </div> -->
       </div>
     </div>
     <div class="col-lg-4 col-md-6">
-      <div class="task_item">
+      <div class="task_item in_progress">
 
-        <div class="todo_task d-flex p-4 align-items-center ">
-         <i class="fa-regular fa-square fs-4 px-2 logo"></i>
+        <div class="todo_task d-flex p-4 align-items-center  ">
+         <i class="fa-solid fa-hourglass-half  fs-4 px-2 logo"></i>
 
-          <h4>To do</h4>
+          <h4 class="fw-bold">in progress</h4>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-4 col-md-6 completed">
       <div class="task_item">
 
-        <div class="todo_task d-flex p-4 align-items-center ">
-         <i class="fa-regular fa-square fs-4 px-2 logo"></i>
+        <div class="todo_task d-flex p-4 align-items-center">
+          <i class="fa-solid fa-square-check fs-4 px-2 logo"></i>
 
-          <h4>To do</h4>
+
+          <h4 class="fw-bold">Completed</h4>
         </div>
       </div>
   </div>
